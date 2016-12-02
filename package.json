@@ -1,0 +1,20 @@
+{
+  "name": "kitsu-alfred",
+  "version": "1.0.0",
+  "description": "Search Kitsu.io from Alfred",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewdias/kitsu-alfred.git"
+  },
+  "author": "matthewdias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matthewdias/kitsu-alfred/issues"
+  },
+  "homepage": "https://github.com/matthewdias/kitsu-alfred",
+  "dependencies": {
+    "alfy": "^0.6.0",
+    "devour-client": "^1.4.0"
+  }
+}
