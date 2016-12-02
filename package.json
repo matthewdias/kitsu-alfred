@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "description": "Search Kitsu.io from Alfred",
   "scripts": {
-    "build": "alfred-link",
-    "remove": "alfred-unlink",
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup"
   },
