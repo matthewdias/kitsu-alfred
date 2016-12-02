@@ -48,10 +48,6 @@
 			</dict>
 		</array>
 	</dict>
-	<key>createdby</key>
-	<string>matthewdias</string>
-	<key>description</key>
-	<string>Search Kitsu.io from Alfred</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -98,8 +94,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>9EBD53B8-5618-41C8-8D5F-9A0CC1E4A049</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -240,7 +234,5 @@
 			<integer>170</integer>
 		</dict>
 	</dict>
-	<key>webaddress</key>
-	<string>matthewdias.me</string>
 </dict>
 </plist>

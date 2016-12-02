@@ -2,7 +2,11 @@
   "name": "kitsu-alfred",
   "version": "1.0.0",
   "description": "Search Kitsu.io from Alfred",
-  "scripts": {},
+  "scripts": {
+    "build": "alfred-link",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matthewdias/kitsu-alfred.git"
