@@ -111,8 +111,6 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>EB521FE0-7588-44BB-8242-AE9A373E0015</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -154,8 +152,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>3F3071E0-9155-4976-A5FB-4BB700CD21E7</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -197,8 +193,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>984EF248-8E12-4076-A3E8-798BDB9E0CC5</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>

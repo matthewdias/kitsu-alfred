@@ -3,8 +3,7 @@
   "version": "1.0.1",
   "description": "Search Kitsu.io from Alfred",
   "scripts": {
-    "postinstall": "alfy-init",
-    "preuninstall": "alfy-cleanup"
+    "postinstall": "alfy-init"
   },
   "repository": {
     "type": "git",
