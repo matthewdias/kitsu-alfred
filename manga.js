@@ -1,7 +1,7 @@
 const alfy = require('alfy')
 const Kitsu = require('devour-client')
 
-const host = 'http://staging.kitsu.io'
+const host = 'https://kitsu.io'
 const kitsu = new Kitsu({ apiUrl: host + '/api/edge' })
 
 kitsu.define('manga', {
