@@ -1,6 +1,6 @@
 {
   "name": "kitsu-alfred",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Search Kitsu.io from Alfred",
   "scripts": {
     "postinstall": "alfy-init"
