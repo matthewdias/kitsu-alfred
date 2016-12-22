@@ -1,38 +1,49 @@
 const alfy = require('alfy')
 const Kitsu = require('devour-client')
+const fs = require('fs')
+const got = require('got')
 
 const host = 'https://kitsu.io'
 const kitsu = new Kitsu({ apiUrl: host + '/api/edge' })
 
+kitsu.headers['User-Agent'] = 'Alfred/1.0.5'
+
 kitsu.define('manga', {
   canonicalTitle: '',
   slug: '',
-  // posterImage: { medium: '' },
+  posterImage: { tiny: '' },
   mangaType: ''
 }, { collectionPath: 'manga' })
 
 const searchManga = (text) => {
-  return new Promise((pass, fail) => {
-    kitsu.findAll('manga', {
-      filter: { text }
-    }).then((manga) => {
-      pass(manga)
-    })
+  return kitsu.findAll('manga', {
+    filter: { text }
   })
 }
 
 searchManga(encodeURI(alfy.input)).then((manga) => {
   alfy.output(manga.map((manga) => {
     let url = host + '/manga/' + manga.slug
-    return {
+    let output = {
       uid: manga.id,
       title: manga.canonicalTitle,
       subtitle: manga.mangaType.charAt(0).toUpperCase() + manga.mangaType.slice(1),
       arg: url,
-      // icon: { path: manga.posterImage.medium },
       autocomplete: manga.canonicalTitle,
       text: { copy: url, largetype: url },
       quicklookurl: url
     }
+
+    if (manga.posterImage) {
+      let path = `./cache/manga/${manga.id}.jpg`
+      if (!fs.existsSync(path)) {
+        got(manga.posterImage.tiny).then((response) => {
+          got.stream(manga.posterImage.tiny).pipe(fs.createWriteStream(path))
+        }).catch((error) => {})
+      }
+      output.icon = { path }
+    }
+
+    return output
   }))
 })

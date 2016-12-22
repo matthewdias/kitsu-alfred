@@ -1,1 +1,4 @@
 node_modules
+cache/anime/*
+cache/manga/*
+cache/users/*

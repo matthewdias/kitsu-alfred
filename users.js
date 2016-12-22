@@ -1,36 +1,46 @@
 const alfy = require('alfy')
 const Kitsu = require('devour-client')
+const fs = require('fs')
+const got = require('got')
 
 const host = 'https://kitsu.io'
 const kitsu = new Kitsu({ apiUrl: host + '/api/edge' })
 
+kitsu.headers['User-Agent'] = 'Alfred/1.0.5'
+
 kitsu.define('user', {
   name: '',
-  // avatar: { medium: '' }
+  avatar: { medium: '' }
 })
 
 const searchUsers = (query) => {
-  return new Promise((pass, fail) => {
-    kitsu.findAll('user', {
-      filter: { query },
-      include: 'waifu'
-    }).then((users) => {
-      pass(users)
-    })
+  return kitsu.findAll('user', {
+    filter: { query }
   })
 }
 
-searchUsers(encodeURI(alfy.input)).then((user) => {
-  alfy.output(user.map((user) => {
+searchUsers(encodeURI(alfy.input)).then((users) => {
+  alfy.output(users.map((user) => {
     let url = host + '/users/' + user.name
-    return {
+    let output = {
       uid: user.id,
       title: user.name,
       arg: url,
-      // icon: { path: user.posterImage.medium },
       autocomplete: user.name,
       text: { copy: url, largetype: url },
       quicklookurl: url
     }
+
+    if (user.avatar) {
+      let path = `./cache/users/${user.id}.jpg`
+      if (!fs.existsSync(path)) {
+        got(user.avatar.medium).then((response) => {
+          got.stream(user.avatar.medium).pipe(fs.createWriteStream(path))
+        }).catch((error) => { output = { title: error } })
+      }
+      output.icon = { path }
+    }
+
+    return output
   }))
 })
