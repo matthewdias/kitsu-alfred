@@ -3,7 +3,7 @@
   "version": "1.0.5",
   "description": "Search Kitsu.io from Alfred",
   "scripts": {
-    "postinstall": "alfy-init"
+    "postinstall": "alfy-init && mkdir cache cache/anime cache/manga cache/users"
   },
   "repository": {
     "type": "git",
