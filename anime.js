@@ -6,7 +6,7 @@ const got = require('got')
 const host = 'https://kitsu.io'
 const kitsu = new Kitsu({ apiUrl: host + '/api/edge' })
 
-kitsu.headers['User-Agent'] = 'Alfred/1.0.5'
+kitsu.headers['User-Agent'] = 'Alfred/1.0.6'
 
 kitsu.define('anime', {
   canonicalTitle: '',
