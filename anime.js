@@ -12,7 +12,7 @@ kitsu.define('anime', {
   canonicalTitle: '',
   slug: '',
   posterImage: { tiny: '' },
-  showType: ''
+  subtype: ''
 }, { collectionPath: 'anime' })
 
 const searchAnime = (text) => {
@@ -27,7 +27,7 @@ searchAnime(encodeURI(alfy.input)).then((anime) => {
     let output = {
       uid: anime.id,
       title: anime.canonicalTitle,
-      subtitle: anime.showType.charAt(0).toUpperCase() + anime.showType.slice(1),
+      subtitle: anime.subtype.charAt(0).toUpperCase() + anime.subtype.slice(1),
       arg: url,
       autocomplete: anime.canonicalTitle,
       text: { copy: url, largetype: url },

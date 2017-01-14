@@ -12,7 +12,7 @@ kitsu.define('manga', {
   canonicalTitle: '',
   slug: '',
   posterImage: { tiny: '' },
-  mangaType: ''
+  subtype: ''
 }, { collectionPath: 'manga' })
 
 const searchManga = (text) => {
@@ -27,7 +27,7 @@ searchManga(encodeURI(alfy.input)).then((manga) => {
     let output = {
       uid: manga.id,
       title: manga.canonicalTitle,
-      subtitle: manga.mangaType.charAt(0).toUpperCase() + manga.mangaType.slice(1),
+      subtitle: manga.subtype.charAt(0).toUpperCase() + manga.subtype.slice(1),
       arg: url,
       autocomplete: manga.canonicalTitle,
       text: { copy: url, largetype: url },

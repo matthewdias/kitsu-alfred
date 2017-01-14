@@ -1,6 +1,6 @@
 {
   "name": "kitsu-alfred",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Search Kitsu.io from Alfred",
   "scripts": {
     "postinstall": "alfy-init && mkdir cache cache/anime cache/manga cache/users"
